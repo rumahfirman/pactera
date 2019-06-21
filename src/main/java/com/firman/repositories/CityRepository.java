@@ -3,6 +3,7 @@ package com.firman.repositories;
 import com.firman.domainobjects.City;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 /**
  * Created by firman on 6/20/19.
@@ -16,5 +17,5 @@ public interface CityRepository extends CrudRepository<City, Long>
      * @return
      */
     @Query("select c from City c where UPPER(c.name) = UPPER(:name)")
-    City findByName(String name);
+    City findByName(@Param(value = "name") String name);
 }
