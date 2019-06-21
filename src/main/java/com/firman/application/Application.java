@@ -9,10 +9,16 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * Created by firman on 2/2/19.
  */
+@EnableSwagger2
 @EnableJpaRepositories(basePackages = {"com.firman.repositories"})
 @EntityScan({"com.firman.domainobjects"})
 @ComponentScan({"com.firman.controllers", "com.firman.services"})
@@ -37,6 +43,17 @@ public class Application implements WebMvcConfigurer
     public RestTemplate restTemplate()
     {
         return new RestTemplate();
+    }
+
+
+    @Bean
+    public Docket docket()
+    {
+        return new Docket(DocumentationType.SWAGGER_2)
+            .select()
+            .apis(RequestHandlerSelectors.basePackage("com.firman"))
+            .paths(PathSelectors.any())
+            .build();
     }
 
 }
