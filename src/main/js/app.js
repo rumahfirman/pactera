@@ -30,16 +30,14 @@ class WeatherTable extends React.Component {
     }
 
     cityChangedListener(city) {
-        client({path: `/weather/${city}`}).then(response => {
-                console.log(response)
-                this.setState({weather: response.entity})
-            }
-        )
+        client({path: `/weather/${city}`}).then(response => this.setState({weather: response.entity}))
     }
 
     render() {
+        const time = this.state.weather != null ? this.state.weather.updateTime : "";
         const weather = this.state.weather != null ? this.state.weather.weather[0].main : "";
-        const temp = this.state.weather != null ? `${((this.state.weather.main.temp - 32) * 5 / 9).toFixed(2)} °C` : "";
+        const temp = this.state.weather != null ? `${(this.state.weather.main.temp - 273.15).toFixed(2)} °C` : "";
+        const wind = this.state.weather != null ? `${this.state.weather.wind.speed} m/s` : "";
         return (
             <div className="divTable">
                 <div className="divTableBody">
@@ -49,7 +47,7 @@ class WeatherTable extends React.Component {
                     </div>
                     <div className="divTableRow">
                         <div className="divTableCell">Updated time</div>
-                        <div className="divTableCell">{new Date().toLocaleDateString()}</div>
+                        <div className="divTableCell">{time}</div>
                     </div>
                     <div className="divTableRow">
                         <div className="divTableCell">Weather</div>
@@ -61,7 +59,7 @@ class WeatherTable extends React.Component {
                     </div>
                     <div className="divTableRow">
                         <div className="divTableCell">Wind</div>
-                        <div className="divTableCell">&nbsp;</div>
+                        <div className="divTableCell">{wind}</div>
                     </div>
                 </div>
             </div>

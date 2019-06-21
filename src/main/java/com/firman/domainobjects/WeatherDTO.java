@@ -1,6 +1,7 @@
 package com.firman.domainobjects;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,6 +16,32 @@ public class WeatherDTO
     private List<Weather> weathers;
     @JsonProperty("main")
     private Temperature temperature;
+    private Wind wind;
+    private String updateTime = new Date().toString();
+
+
+    public String getUpdateTime()
+    {
+        return updateTime;
+    }
+
+
+    public void setUpdateTime(String updateTime)
+    {
+        this.updateTime = updateTime;
+    }
+
+
+    public Wind getWind()
+    {
+        return wind;
+    }
+
+
+    public void setWind(Wind wind)
+    {
+        this.wind = wind;
+    }
 
 
     public String getCityName()
@@ -50,6 +77,37 @@ public class WeatherDTO
     public void setTemperature(Temperature temperature)
     {
         this.temperature = temperature;
+    }
+
+
+    public static class Wind
+    {
+        private double speed;
+        private double degree;
+
+
+        public double getSpeed()
+        {
+            return speed;
+        }
+
+
+        public void setSpeed(double speed)
+        {
+            this.speed = speed;
+        }
+
+
+        public double getDegree()
+        {
+            return degree;
+        }
+
+
+        public void setDegree(double degree)
+        {
+            this.degree = degree;
+        }
     }
 
     public static class Temperature
