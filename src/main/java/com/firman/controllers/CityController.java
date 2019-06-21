@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * Manages list of cities to be presented in the client side.
  * Created by firman on 6/20/19.
  */
 @RestController

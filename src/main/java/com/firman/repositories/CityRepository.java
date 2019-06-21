@@ -9,6 +9,12 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface CityRepository extends CrudRepository<City, Long>
 {
+    /**
+     * Case insensitive search for city based on the name.
+     *
+     * @param name
+     * @return
+     */
     @Query("select c from City c where UPPER(c.name) = UPPER(:name)")
     City findByName(String name);
 }
