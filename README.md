@@ -1,6 +1,7 @@
 USER GUIDE
 
-To build and run the application: mvn spring-boot:run
+To build and run the application: go to root directory of the project and run: mvn spring-boot:run
+The first time it may fail installing webpack. In such case, run: npm install webpack && mvn spring-boot:run
 
 To check for weather: localhost:8080
 User will be presented with a drop down selection of cities. Whenever a selection changes, the weather information for
