@@ -35,9 +35,9 @@ class WeatherTable extends React.Component {
 
     render() {
         const time = this.state.weather != null ? this.state.weather.updateTime : "";
-        const weather = this.state.weather != null ? this.state.weather.weather[0].main : "";
-        const temp = this.state.weather != null ? `${(this.state.weather.main.temp - 273.15).toFixed(2)} °C` : "";
-        const wind = this.state.weather != null ? `${this.state.weather.wind.speed} m/s` : "";
+        const weather = this.state.weather != null ? this.state.weather.weather : "";
+        const temp = this.state.weather != null ? `${(this.state.weather.temperature - 273.15).toFixed(2)} °C` : "";
+        const wind = this.state.weather != null ? `${this.state.weather.wind} m/s` : "";
         return (
             <div className="divTable">
                 <div className="divTableBody">
