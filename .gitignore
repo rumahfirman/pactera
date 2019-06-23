@@ -1,0 +1,10 @@
+*.iml
+.DS_Store
+.idea
+.gitignore
+target/
+package-lock.json
+bundle.js
+bundle.js.map
+node_modules/
+src/main/resources/static/built
