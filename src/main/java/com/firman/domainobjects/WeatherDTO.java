@@ -13,8 +13,8 @@ public class WeatherDTO
 {
     private String name;
     private String weather;
-    private double temperature;
-    private double wind;
+    private Number temperature;
+    private Number wind;
     private String updateTime = new Date().toString();
 
 
@@ -28,14 +28,14 @@ public class WeatherDTO
     @JsonProperty("main")
     public void retrieveTemperature(Map<String, Object> json)
     {
-        this.temperature = (double) json.get("temp");
+        this.temperature = (Number) json.get("temp");
     }
 
 
     @JsonProperty("wind")
     public void unpackWind(Map<String, Object> json)
     {
-        this.wind = (double) json.get("speed");
+        this.wind = (Number) json.get("speed");
     }
 
 
@@ -63,25 +63,25 @@ public class WeatherDTO
     }
 
 
-    public double getTemperature()
+    public Number getTemperature()
     {
         return temperature;
     }
 
 
-    public void setTemperature(double temperature)
+    public void setTemperature(Number temperature)
     {
         this.temperature = temperature;
     }
 
 
-    public double getWind()
+    public Number getWind()
     {
         return wind;
     }
 
 
-    public void setWind(double wind)
+    public void setWind(Number wind)
     {
         this.wind = wind;
     }
