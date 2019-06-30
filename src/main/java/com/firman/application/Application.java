@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
@@ -23,7 +24,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EntityScan({"com.firman.domainobjects"})
 @ComponentScan({"com.firman.controllers", "com.firman.services", "com.firman.exception.handler"})
 @SpringBootApplication
-public class Application implements WebMvcConfigurer
+public class Application extends SpringBootServletInitializer
 {
 
     @Value("${weather.service.url}")
@@ -36,6 +37,12 @@ public class Application implements WebMvcConfigurer
     public static void main(String[] args)
     {
         SpringApplication.run(Application.class);
+    }
+
+
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application)
+    {
+        return application.sources(Application.class);
     }
 
 

@@ -30,7 +30,7 @@ class WeatherTable extends React.Component {
     }
 
     cityChangedListener(city) {
-        client({path: `/weather/${city}`}).then(response => this.setState({weather: response.entity}))
+        client({path: `weather/${city}`}).then(response => this.setState({weather: response.entity}))
     }
 
     render() {
@@ -77,7 +77,7 @@ class CitySelection extends React.Component {
     }
 
     componentDidMount() {
-        client({path: '/city/cities'}).then(response =>
+        client({path: 'city/cities'}).then(response =>
             this.setState({cities: response.entity.map(e => e.name)}, fireCityChangeEvent(response.entity[0].name)))
     }
 
