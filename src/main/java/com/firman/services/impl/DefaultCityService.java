@@ -1,7 +1,8 @@
-package com.firman.services;
+package com.firman.services.impl;
 
 import com.firman.domainobjects.City;
 import com.firman.repositories.CityRepository;
+import com.firman.services.CityService;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

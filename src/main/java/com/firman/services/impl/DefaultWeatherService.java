@@ -1,6 +1,7 @@
-package com.firman.services;
+package com.firman.services.impl;
 
 import com.firman.domainobjects.WeatherDTO;
+import com.firman.services.WeatherService;
 import java.util.HashMap;
 import java.util.Map;
 import org.slf4j.Logger;
