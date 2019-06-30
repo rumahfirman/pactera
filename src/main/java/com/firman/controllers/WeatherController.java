@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * Serves the weather endpoint.
+ * Serves the weather.
  * Created by firman on 6/20/19.
  */
 @RestController
@@ -40,15 +40,16 @@ public class WeatherController
     /**
      * The weather endpoint.
      *
-     * @param cityName The city name. This will be validated against the city list in the database.
-     *                 If the given city is not in the database, exception is thrown.
-     * @return
+     * @param city The city name for which weather data will be retrieved.
+     *             This will be validated against the city list in the database.
+     *             If the given city is not in the database, exception is thrown.
+     * @return The weather object for the city.
      */
-    @GetMapping("/{cityName}")
-    public WeatherDTO getWeather(@CityConstraint @PathVariable String cityName)
+    @GetMapping("/{city}")
+    public WeatherDTO getWeather(@CityConstraint @PathVariable String city)
     {
         Map<String, String> urlVars = new HashMap<>();
-        urlVars.put(cityUrlVariable, cityName);
+        urlVars.put(cityUrlVariable, city);
         urlVars.put(apiKeyUrlVariable, appId);
         LOGGER.info("url vars: " + urlVars);
         LOGGER.info("URL: " + weatherServiceUrl);

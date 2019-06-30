@@ -22,14 +22,14 @@ public class CityController
     private CityService cityService;
 
 
-    @GetMapping("/getcities")
+    @GetMapping("/cities")
     public List<City> listCities()
     {
         return cityService.listCities();
     }
 
 
-    @PostMapping("/addcity")
+    @PostMapping("/city")
     public void addCity(@RequestBody City city)
     {
         cityService.addCity(city);

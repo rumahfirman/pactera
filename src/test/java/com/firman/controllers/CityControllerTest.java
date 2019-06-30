@@ -34,7 +34,7 @@ public class CityControllerTest
     @Test
     public void testListCities() throws Exception
     {
-        mvc.perform(MockMvcRequestBuilders.get("/city/getcities").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(MockMvcRequestBuilders.get("/city/cities").accept(MediaType.APPLICATION_JSON))
             .andExpect(status().is(200));
     }
 
@@ -47,7 +47,7 @@ public class CityControllerTest
     @Test
     public void testAddCity() throws Exception
     {
-        mvc.perform(MockMvcRequestBuilders.post("/city/addcity").contentType(MediaType.APPLICATION_JSON).content(ADD_CITY))
+        mvc.perform(MockMvcRequestBuilders.post("/city/city").contentType(MediaType.APPLICATION_JSON).content(ADD_CITY))
             .andExpect(status().is(200));
 
     }

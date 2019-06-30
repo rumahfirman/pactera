@@ -77,7 +77,7 @@ class CitySelection extends React.Component {
     }
 
     componentDidMount() {
-        client({path: '/city/getcities'}).then(response =>
+        client({path: '/city/cities'}).then(response =>
             this.setState({cities: response.entity.map(e => e.name)}, fireCityChangeEvent(response.entity[0].name)))
     }
 
