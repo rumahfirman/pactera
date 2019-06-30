@@ -21,7 +21,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableJpaRepositories(basePackages = {"com.firman.repositories"})
 @EntityScan({"com.firman.domainobjects"})
-@ComponentScan({"com.firman.controllers", "com.firman.services"})
+@ComponentScan({"com.firman.controllers", "com.firman.services", "com.firman.exception.handler"})
 @SpringBootApplication
 public class Application implements WebMvcConfigurer
 {

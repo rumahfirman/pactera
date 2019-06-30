@@ -155,6 +155,7 @@
                                 <exclude>*/**/HomeController.*</exclude>
                                 <exclude>com/firman/application/**/*</exclude>
                                 <exclude>com/firman/domainobjects/**/*</exclude>
+                                <exclude>com/firman/exception/**/*</exclude>
                             </excludes>
                         </configuration>
                     </execution>

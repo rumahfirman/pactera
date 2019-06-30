@@ -1,5 +1,6 @@
 package com.firman.validators;
 
+import com.firman.exception.ExceptionMessagesConstants;
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -17,7 +18,7 @@ import javax.validation.Payload;
 @Documented
 public @interface CityConstraint
 {
-    String message() default "City is undefined";
+    String message() default ExceptionMessagesConstants.CITY_UNDEFINED;
 
     Class<?>[] groups() default {};
 
